@@ -26,8 +26,11 @@ func main() {
     w_flag := flag.Float64("w",0,"Warning threshold")
     c_flag := flag.Float64("c",0,"Error threshold")
     flag.Parse()
-    //do some error checking here
 
+   if len(os.Args) < 9 {
+        flag.PrintDefaults()
+        os.Exit(1)
+    }
     var protocol string
     if *http_flag {
         protocol="https"
